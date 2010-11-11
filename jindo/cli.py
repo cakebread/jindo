@@ -24,12 +24,11 @@ import logging
 
 #from jindo.jindolib import get_highest_version, Distributions
 from jindo.utils import get_rc_file
-from jindo.jindolib import fetch_service_details, print_service_details
+from jindo.jindolib import fetch_service_details, print_service_details, fetch_services
 from jindo.__init__ import __version__ as VERSION
 
 
 #TODO: Use a real config parser
-API_KEY = get_rc_file().split("=")[1].strip()
 
 class Jindo(object):
 
@@ -41,7 +40,7 @@ class Jindo(object):
         #PyPI project name with proper case
         self.options = None
         self.logger = logging.getLogger("jindo")
-        self.api_key = API_KEY
+        self.api_key = get_rc_file().split("=")[1].strip()
 
 
     def set_log_level(self):
@@ -65,6 +64,11 @@ class Jindo(object):
         data, code, status = fetch_service_details(service, self.api_key)
         return data
 
+    def get_services(self):
+        '''Return list of all service ids'''
+        data, code, status = fetch_services(self.api_key)
+        return data
+
     def run(self):
         """
         Perform actions based on CLI options
@@ -82,6 +86,9 @@ class Jindo(object):
         if self.options.service_details:
             json_data = self.get_service_details(self.options.service)
             print_service_details(json_data)
+        elif self.options.service_ids:
+            json_data = self.get_services()
+            print "Service IDs: %s" % json_data
         else:
             opt_parser.print_help()
             return 2
@@ -129,6 +136,11 @@ def setup_opt_parser():
                           dest="service",
                           default=False, help=
                           "Specify service number for use with -d -S or -a")
+
+    opt_parser.add_option("-i", "--service-ids", action='store_true',
+                          dest="service_ids",
+                          default=False, help=
+                          "Get list of all services for your account.")
 
     return opt_parser
 

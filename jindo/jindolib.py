@@ -57,6 +57,21 @@ def print_service_details(json_data):
         else:
             print key + ":", json_data['service'][key]
 
+def fetch_services(api_key):
+    '''Returns list of services associated with an account'''
+    c = httplib.HTTPSConnection("api.mediatemple.net")
+    c.request("GET", "/api/v1/services/ids.json?apikey=%s" % api_key)
+    response = c.getresponse()
+    json_data = json.loads(response.read())
+    
+    if not json_data.has_key('serviceIds'):
+        print response.status, response.reason
+        if response.status == 403:
+            print "The service may not be associated with this API key."
+        #I'll work on exception handling when I refactor the httplib code
+        sys.exit(2)
+    return json_data['serviceIds'], response.status, response.reason
+
 def fetch_service_details(service, api_key, debug=False):
     '''Returns '''
     c = httplib.HTTPSConnection("api.mediatemple.net")
