@@ -8,6 +8,14 @@ Installation
 
 You can install jindo with ``easy_install jindo`` (sudo required in most cases)
 
+You'll need to create this file and put your (mt) API key in it:
+
+~/.jindorc
+
+Contents:
+
+api_key=YOUR_API_KEY
+
 
 Summary
 -------
