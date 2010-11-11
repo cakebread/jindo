@@ -1,0 +1,12 @@
+
+
+With easy_install:
+  easy_install jindo
+
+With pip:
+
+  pip install jindo
+
+With distutils:
+  python setup.py install
+

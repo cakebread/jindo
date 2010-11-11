@@ -1,0 +1,9 @@
+
+
+Q: Why is wsgiref showing up as a development package?
+
+A: wsgiref is a 'system' package which is a development package located
+in a system directory. Currently there is no way to determine which
+packages are system packages or 'normal' development packages.
+
+

@@ -1,0 +1,34 @@
+jindo
+====
+
+.. contents::
+
+Installation
+------------
+
+You can install jindo with ``easy_install jindo`` (sudo required in most cases)
+
+
+Summary
+-------
+
+Usage Examples::
+
+    $ jindo -d -s NNNNN
+         List details for service number NNNNNN
+
+
+
+Changes
+-------
+**0.0.1**: Fix for yadda
+           
+           Add blabla
+
+
+Requirements
+------------
+
+* setuptools
+
+
