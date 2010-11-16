@@ -22,6 +22,9 @@ Summary
 
 Usage Examples::
 
+    $ jindo -l
+         Get a list of all services associated with the account API keyh was issued for
+
     $ jindo -d -s NNNNN
          List details for service number NNNNNN
 
