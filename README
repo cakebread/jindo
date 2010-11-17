@@ -22,19 +22,21 @@ Summary
 
 Usage Examples::
 
-    $ jindo -l
+    $ jindo -i
          Get a list of all services associated with the account API keyh was issued for
 
-    $ jindo -d -s NNNNN
+    $ jindo -d NNNNN
          List details for service number NNNNNN
+
+    $ jindo -d NNNNN -f json
+         Same as above but output in JSON format instead of text
 
 
 
 Changes
 -------
-**0.0.1**: Fix for yadda
+**0.0.2**: Added -f format option
            
-           Add blabla
 
 
 Requirements

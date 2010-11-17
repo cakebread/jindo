@@ -8,7 +8,7 @@ from jindo.__init__ import __version__ as VERSION
 
 
 setup(name="jindo",
-    license = "GPL-2",
+    license = "BSD",
     version=VERSION,
     description="Command-line tool and library for (mt) API",
     long_description=open("README", "r").read(),

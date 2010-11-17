@@ -6,7 +6,7 @@ except:
     import simplejson as json
 import httplib
 
-from jindo.utils import camel_to_human, red
+from jindo.utils import camel_to_human
 
 '''
 

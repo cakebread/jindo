@@ -10,7 +10,7 @@ Desc: Command-line tool for (mt) Media Temple API
 
 Author: Rob Cakebread <rcakebread @ mediatemplet dawt net>
 
-License : GNU General Public License Version 2 (See COPYING)
+License : BSD
 
 
 """
@@ -62,11 +62,13 @@ class Jindo(object):
     def get_service_details(self, service):
         '''Return details for a specific service'''
         data, code, status = fetch_service_details(service, self.api_key)
+        #TODO: Raise exceptions based on code/status?
         return data
 
     def get_services(self):
         '''Return list of all service ids'''
         data, code, status = fetch_services(self.api_key)
+        #TODO: Raise exceptions based on code/status?
         return data
 
     def run(self):
@@ -88,7 +90,11 @@ class Jindo(object):
             print_service_details(json_data, self.options.format)
         elif self.options.service_ids:
             json_data = self.get_services()
-            print "Service IDs: %s" % json_data
+            #TODO: Could be formatted better
+            if self.options.format == 'text':
+                print "Service IDs: %s" % json_data
+            else:
+                print json_data
         else:
             opt_parser.print_help()
             return 2
@@ -130,7 +136,7 @@ def setup_opt_parser():
 
     opt_parser.add_option("-f", "--format", action='store',
                           dest="format",
-                          default="text", help= "json OR text")
+                          default="text", help= "json OR text (default)")
 
     opt_parser.add_option("-d", "--get-service-details", action='store',
                           dest="service",

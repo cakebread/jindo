@@ -15,8 +15,9 @@ __docformat__ = 'restructuredtext'
 
 import os
 
-def red(my_string):
-     return '\033[0;34m%s\033[0m' % my_string
+def blue(my_string):
+    '''TODO: Find some simple coloring function/lib'''
+    return '\033[0;34m%s\033[0m' % my_string
 
 def get_rc_file():
     """
@@ -34,7 +35,6 @@ def sinsert(original, new, pos):
 
 
 def camel_to_human(original):
-#Index where capital letters are
     i = 0
     for s in original:
         if s.isupper():
@@ -42,5 +42,5 @@ def camel_to_human(original):
             i += 1
         i += 1
     original = original.capitalize()
-    return red(original)
+    return blue(original)
 
