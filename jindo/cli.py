@@ -83,9 +83,9 @@ class Jindo(object):
         if (len(sys.argv) == 1 or len(remaining_args) > 2):
             opt_parser.print_help()
             return 2
-        if self.options.service_details:
+        if self.options.service:
             json_data = self.get_service_details(self.options.service)
-            print_service_details(json_data)
+            print_service_details(json_data, self.options.format)
         elif self.options.service_ids:
             json_data = self.get_services()
             print "Service IDs: %s" % json_data
@@ -128,14 +128,13 @@ def setup_opt_parser():
                           "quiet", default=False, help=
                           "Show less output.")
 
-    opt_parser.add_option("-d", "--get-service-details", action='store_true',
-                          dest="service_details",
-                          default=False, help= "Get details for a service.")
+    opt_parser.add_option("-f", "--format", action='store',
+                          dest="format",
+                          default="text", help= "json OR text")
 
-    opt_parser.add_option("-s", "--service", action='store',
+    opt_parser.add_option("-d", "--get-service-details", action='store',
                           dest="service",
-                          default=False, help=
-                          "Specify service number for use with -d -S or -a")
+                          default=False, help= "Get details for a service.")
 
     opt_parser.add_option("-i", "--service-ids", action='store_true',
                           dest="service_ids",
