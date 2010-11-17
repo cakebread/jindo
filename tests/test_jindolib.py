@@ -11,14 +11,14 @@ SERVER_RESP = '''{
                 "id": 719
             }
         ],
-        "billingStatus": "0",
+        "billingStatus": 0,
         "billingStatusText": "OPEN",
         "hostServer": "vzd007.mediatemple.net",
         "id": 427401,
         "ipAddresses": [
             "70.32.111.178"
         ],
-        "operatingSystem": "16",
+        "operatingSystem": 16,
         "operatingSystemName": "Ubuntu 9.10 Karmic",
         "primaryDomain": "ve.cakebread.info",
         "serviceType": 669,
@@ -43,8 +43,7 @@ def test_get_service_detail():
     json_data = parse_service(SERVER_RESP)
     assert json_data['service']['accessDomain'] == "ve.svfdbcfc.vesrv.com"
 
-    #API broken, should be integer:
-    assert json_data['service']['billingStatus'] == "0"
+    assert json_data['service']['billingStatus'] == 0
     assert json_data['service']['addons'] == [ { "description": "(ve) Snapshot Backups", "id": 719 } ]
     assert json_data['service']['addons'][0]["description"]  == "(ve) Snapshot Backups"
     assert json_data['service']['addons'][0]["id"]  == 719
@@ -52,8 +51,7 @@ def test_get_service_detail():
     assert json_data['service']['billingStatusText'] == "OPEN"
     assert json_data['service']['hostServer'] == "vzd007.mediatemple.net"
     assert json_data['service']['ipAddresses'] == ["70.32.111.178"]
-    #API broken, should be integer:
-    assert json_data['service']['operatingSystem'] == "16"
+    assert json_data['service']['operatingSystem'] == 16
     assert json_data['service']['operatingSystemName'] == "Ubuntu 9.10 Karmic"
     assert json_data['service']['serviceType'] == 669
     assert json_data['service']['serviceTypeName'] == "(ve) Server 1GB"
