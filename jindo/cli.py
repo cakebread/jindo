@@ -101,7 +101,8 @@ class Jindo(object):
             else:
                 print json_data
         elif self.options.reboot:
-            self.options.format = 'json' # TODO: Change print_service_details to format this nicely
+            self.options.format = 'json'
+            # TODO: Change print_service_details to format this nicely
             json_data = self.reboot_server(self.options.reboot)
             print_service_details(json_data, self.options.format)
         else:
@@ -156,8 +157,8 @@ def setup_opt_parser():
                           default=False, help=
                           "Get list of all services for your account.")
     opt_parser.add_option("-r", "--reboot", action='store',
-                          dest="reboot",
-                          default=False, help= "Reboot your server.")
+                          dest="reboot", metavar="SERVICE",
+                          default=False, help= "Reboot your server for service number SERVICE.")
 
     return opt_parser
 
