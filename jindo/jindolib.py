@@ -71,6 +71,19 @@ def print_service_details(json_data, format='text'):
     else:
         print "Error: No such format: %s" % format
 
+def reboot_server(service, api_key):
+    '''Reboots your server. Returns response if successful'''
+    c = httplib.HTTPSConnection("api.mediatemple.net")
+    c.request("POST", "/api/v1/services/%s/reboot.json?apikey=%s" % (service, api_key))
+    response = c.getresponse()
+    json_data = json.loads(response.read())
+    
+    if response.status == 403:
+        print "The service may not be associated with this API key."
+        #He'll work on exception handling when he refactors the httplib code
+        sys.exit(2)
+    return json_data, response.status, response.reason
+
 def fetch_services(api_key):
     '''Returns list of services associated with an account'''
     c = httplib.HTTPSConnection("api.mediatemple.net")

@@ -24,7 +24,7 @@ import logging
 
 #from jindo.jindolib import get_highest_version, Distributions
 from jindo.utils import get_rc_file
-from jindo.jindolib import fetch_service_details, print_service_details, fetch_services
+from jindo.jindolib import fetch_service_details, print_service_details, fetch_services, reboot_server
 from jindo.__init__ import __version__ as VERSION
 
 
@@ -71,6 +71,11 @@ class Jindo(object):
         #TODO: Raise exceptions based on code/status?
         return data
 
+    def reboot_server(self, service):
+        '''Reboots server'''
+        data, code, status = reboot_server(service, self.api_key)
+        #TODO: Raise exceptions based on code/status?
+        return data
     def run(self):
         """
         Perform actions based on CLI options
@@ -95,6 +100,10 @@ class Jindo(object):
                 print "Service IDs: %s" % json_data
             else:
                 print json_data
+        elif self.options.reboot:
+            self.options.format = 'json' # TODO: Change print_service_details to format this nicely
+            json_data = self.reboot_server(self.options.reboot)
+            print_service_details(json_data, self.options.format)
         else:
             opt_parser.print_help()
             return 2
@@ -146,6 +155,9 @@ def setup_opt_parser():
                           dest="service_ids",
                           default=False, help=
                           "Get list of all services for your account.")
+    opt_parser.add_option("-r", "--reboot", action='store',
+                          dest="reboot",
+                          default=False, help= "Reboot your server.")
 
     return opt_parser
 
