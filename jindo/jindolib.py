@@ -24,6 +24,26 @@ License  : BSD
 
 __docformat__ = 'restructuredtext'
 
+RESPONSE_CODES = {
+        200: 'Success',
+        201: 'Successfully Created',
+        202: 'Request accepted but not yet processed',
+        400: 'There was an error in the request input',
+        401: 'Not Authorized. The authenticated user does not have permission to perform the operation',
+        402: 'Permission Denied. The specified credentials are invalid',
+        404: 'The specified resource was not found',
+        409: 'The specified operation is already in progress.',
+        500: 'Internal Server Error',
+        503: 'Service Unavailable'
+}
+
+RESPONSE_KEYS = [
+        'statusCode',
+        'timeStamp',
+        'date',
+        'errors',
+        'custom'
+]
 
 SERVICE_KEYS= ['accessDomain',
         'addons',
@@ -70,6 +90,50 @@ def print_service_details(json_data, format='text'):
                     pass
     else:
         print "Error: No such format: %s" % format
+
+def print_response_details(json_data, format='text'):
+    '''Prints the response all pretty like'''
+    if format == 'json':
+        print json_data
+        return
+    elif format == 'text':
+        for key in RESPONSE_KEYS:
+            if key == 'statusCode':
+                print camel_to_human(key) + ":" 
+                print "    " + str(json_data['response'][key]) + " " + RESPONSE_CODES[json_data['response'][key]]
+            
+            elif key == 'timeStamp':
+                pass
+            
+            elif key == 'errors':
+                print camel_to_human(key) + ":"
+                for error in json_data['response']['errors']:
+                    print "    " + error['message']
+            
+            elif key == 'custom':
+                pass
+
+            else:
+                if json_data['response'][key]:
+                    print camel_to_human(key) + ":"
+                    print '    ' + json_data['response'][key]
+                else:
+                    pass
+    else:
+        print "Error: No such format: %s" % format
+
+def add_temp_diskspace(service, api_key):
+    '''Adds 1 GB temporary disk space for 6 hours'''
+    c = httplib.HTTPSConnection("api.mediatemple.net")
+    c.request("POST", "/api/v1/services/%s/disk/temp.json?apikey=%s" % (service, api_key))
+    response = c.getresponse()
+    json_data = json.loads(response.read())
+
+    if response.status == 403:
+        print "The service may not be associated with this API key."
+        #Blah blah, exception handling, blah blah, refactor code
+        sys.exit(2)
+    return json_data, response.status, response.reason
 
 def reboot_server(service, api_key):
     '''Reboots your server. Returns response if successful'''

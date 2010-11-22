@@ -24,7 +24,7 @@ import logging
 
 #from jindo.jindolib import get_highest_version, Distributions
 from jindo.utils import get_rc_file
-from jindo.jindolib import fetch_service_details, print_service_details, fetch_services, reboot_server
+from jindo.jindolib import fetch_service_details, print_response_details, print_service_details, fetch_services, reboot_server, add_temp_diskspace
 from jindo.__init__ import __version__ as VERSION
 
 
@@ -76,6 +76,12 @@ class Jindo(object):
         data, code, status = reboot_server(service, self.api_key)
         #TODO: Raise exceptions based on code/status?
         return data
+
+    def add_diskspace(self, service):
+        '''Adds temp disk space'''
+        data, code, status = add_temp_diskspace(service, self.api_key)
+        return data
+
     def run(self):
         """
         Perform actions based on CLI options
@@ -101,10 +107,11 @@ class Jindo(object):
             else:
                 print json_data
         elif self.options.reboot:
-            self.options.format = 'json'
-            # TODO: Change print_service_details to format this nicely
             json_data = self.reboot_server(self.options.reboot)
-            print_service_details(json_data, self.options.format)
+            print_response_details(json_data, self.options.format)
+        elif self.options.diskspace:
+            json_data = self.add_diskspace(self.options.diskspace)
+            print_response_details(json_data, self.options.format)
         else:
             opt_parser.print_help()
             return 2
@@ -159,6 +166,9 @@ def setup_opt_parser():
     opt_parser.add_option("-r", "--reboot", action='store',
                           dest="reboot", metavar="SERVICE",
                           default=False, help= "Reboot your server for service number SERVICE.")
+    opt_parser.add_option("--addspace", action='store',
+                          dest="diskspace", metavar="SERVICE",
+                          default=False, help="Add 1GB of disk space for 6 hours for service number SERVICE.")
 
     return opt_parser
 
