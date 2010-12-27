@@ -1,0 +1,61 @@
+Metadata-Version: 1.0
+Name: jindo
+Version: 0.0.2
+Summary: Command-line tool and library for (mt) API
+Home-page: http://localhost/jindo/
+Author: Rob Cakebread
+Author-email: cakebread at gmail dawt cawm
+License: GPL-2
+Description: jindo
+        ====
+        
+        .. contents::
+        
+        Installation
+        ------------
+        
+        You can install jindo with ``easy_install jindo`` (sudo required in most cases)
+        
+        You'll need to create this file and put your (mt) API key in it:
+        
+        ~/.jindorc
+        
+        Contents:
+        
+        api_key=YOUR_API_KEY
+        
+        
+        Summary
+        -------
+        
+        Usage Examples::
+        
+        $ jindo -l
+        Get a list of all services associated with the account API keyh was issued for
+        
+        $ jindo -d -s NNNNN
+        List details for service number NNNNNN
+        
+        
+        
+        Changes
+        -------
+        **0.0.1**: Fix for yadda
+        
+        Add blabla
+        
+        
+        Requirements
+        ------------
+        
+        * setuptools
+        
+        
+        
+Keywords: API mt
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python
+Classifier: Topic :: Software Development :: Libraries :: Python Modules

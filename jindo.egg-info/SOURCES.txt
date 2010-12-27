@@ -1,0 +1,12 @@
+README
+setup.py
+jindo/__init__.py
+jindo/cli.py
+jindo/jindolib.py
+jindo/utils.py
+jindo.egg-info/PKG-INFO
+jindo.egg-info/SOURCES.txt
+jindo.egg-info/dependency_links.txt
+jindo.egg-info/entry_points.txt
+jindo.egg-info/requires.txt
+jindo.egg-info/top_level.txt

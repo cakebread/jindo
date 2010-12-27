@@ -1,0 +1,294 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Jindo API/CLI Documentation &mdash; Jindo v0.0.1 documentation</title>
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '0.0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Jindo v0.0.1 documentation" href="#" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li><a href="#">Jindo v0.0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="jindo-api-cli-documentation">
+<h1>Jindo API/CLI Documentation<a class="headerlink" href="#jindo-api-cli-documentation" title="Permalink to this headline">¶</a></h1>
+<p>Contents:</p>
+<div class="toctree-wrapper compound">
+<ul class="simple">
+</ul>
+</div>
+<div class="section" id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
+<p>Using the jindolib library:</p>
+<p>In your own application, add:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">jindolib</span>
+</pre></div>
+</div>
+<p>Using the command-line tool:</p>
+<blockquote>
+jindo -l</blockquote>
+</div>
+<div class="section" id="instalation">
+<h2>Instalation<a class="headerlink" href="#instalation" title="Permalink to this headline">¶</a></h2>
+<p>It&#8217;s as easy as:</p>
+<div class="highlight-python"><pre>sudo easy_install jindo</pre>
+</div>
+<p>Or if you wish to install current trunk:</p>
+<div class="highlight-python"><pre>sudo easy_install http://github.com/cakebread/p/jindo/trunk</pre>
+</div>
+</div>
+<div class="section" id="api">
+<h2>API<a class="headerlink" href="#api" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="jindolib">
+<h3>jindolib<a class="headerlink" href="#jindolib" title="Permalink to this headline">¶</a></h3>
+<dl class="function">
+<dt id="jindo.jindolib.print_service_details">
+<tt class="descclassname">jindo.jindolib.</tt><tt class="descname">print_service_details</tt><big>(</big><em>json_data</em>, <em>format='text'</em><big>)</big><a class="reference internal" href="_modules/jindo/jindolib.html#print_service_details"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jindo.jindolib.print_service_details" title="Permalink to this definition">¶</a></dt>
+<dd><p>Print details of a service</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>json_data</strong> &#8211; JSON data</li>
+<li><strong>format</strong> &#8211; text OR json</li>
+</ul>
+</td>
+</tr>
+<tr class="field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">None</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="jindo.jindolib.print_response_details">
+<tt class="descclassname">jindo.jindolib.</tt><tt class="descname">print_response_details</tt><big>(</big><em>json_data</em>, <em>format='text'</em><big>)</big><a class="reference internal" href="_modules/jindo/jindolib.html#print_response_details"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jindo.jindolib.print_response_details" title="Permalink to this definition">¶</a></dt>
+<dd><p>Prints the response all pretty like</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="jindo.jindolib.add_temp_diskspace">
+<tt class="descclassname">jindo.jindolib.</tt><tt class="descname">add_temp_diskspace</tt><big>(</big><em>service</em>, <em>api_key</em><big>)</big><a class="reference internal" href="_modules/jindo/jindolib.html#add_temp_diskspace"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jindo.jindolib.add_temp_diskspace" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds 1 GB temporary disk space for 6 hours</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="jindo.jindolib.reboot_server">
+<tt class="descclassname">jindo.jindolib.</tt><tt class="descname">reboot_server</tt><big>(</big><em>service</em>, <em>api_key</em><big>)</big><a class="reference internal" href="_modules/jindo/jindolib.html#reboot_server"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jindo.jindolib.reboot_server" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reboots your server. Returns response if successful</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="jindo.jindolib.fetch_services">
+<tt class="descclassname">jindo.jindolib.</tt><tt class="descname">fetch_services</tt><big>(</big><em>api_key</em><big>)</big><a class="reference internal" href="_modules/jindo/jindolib.html#fetch_services"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jindo.jindolib.fetch_services" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns list of services associated with an account</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="jindo.jindolib.fetch_service_details">
+<tt class="descclassname">jindo.jindolib.</tt><tt class="descname">fetch_service_details</tt><big>(</big><em>service</em>, <em>api_key</em>, <em>debug=False</em><big>)</big><a class="reference internal" href="_modules/jindo/jindolib.html#fetch_service_details"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jindo.jindolib.fetch_service_details" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="jindo.jindolib.parse_service">
+<tt class="descclassname">jindo.jindolib.</tt><tt class="descname">parse_service</tt><big>(</big><em>json_data</em><big>)</big><a class="reference internal" href="_modules/jindo/jindolib.html#parse_service"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jindo.jindolib.parse_service" title="Permalink to this definition">¶</a></dt>
+<dd><p>Parses a service</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="jindo.jindolib.parse_json">
+<tt class="descclassname">jindo.jindolib.</tt><tt class="descname">parse_json</tt><big>(</big><em>result</em><big>)</big><a class="reference internal" href="_modules/jindo/jindolib.html#parse_json"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jindo.jindolib.parse_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Simply loads a string into JSON</p>
+</dd></dl>
+
+</div>
+<div class="section" id="cli">
+<h3>cli<a class="headerlink" href="#cli" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="jindo.cli.Jindo">
+<em class="property">class </em><tt class="descclassname">jindo.cli.</tt><tt class="descname">Jindo</tt><a class="reference internal" href="_modules/jindo/cli.html#Jindo"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jindo.cli.Jindo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Main class for jindo command-line interface</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="jindo.cli.Jindo.__init__">
+<tt class="descclassname">Jindo.</tt><tt class="descname">__init__</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/jindo/cli.html#Jindo.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jindo.cli.Jindo.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="jindo.cli.Jindo.set_log_level">
+<tt class="descclassname">Jindo.</tt><tt class="descname">set_log_level</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/jindo/cli.html#Jindo.set_log_level"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jindo.cli.Jindo.set_log_level" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set log level according to command-line options</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="jindo.cli.Jindo.get_service_details">
+<tt class="descclassname">Jindo.</tt><tt class="descname">get_service_details</tt><big>(</big><em>service</em><big>)</big><a class="reference internal" href="_modules/jindo/cli.html#Jindo.get_service_details"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jindo.cli.Jindo.get_service_details" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return details for a specific service</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="jindo.cli.Jindo.get_services">
+<tt class="descclassname">Jindo.</tt><tt class="descname">get_services</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/jindo/cli.html#Jindo.get_services"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jindo.cli.Jindo.get_services" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return list of all service ids</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="jindo.cli.Jindo.reboot_server">
+<tt class="descclassname">Jindo.</tt><tt class="descname">reboot_server</tt><big>(</big><em>service</em><big>)</big><a class="reference internal" href="_modules/jindo/cli.html#Jindo.reboot_server"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jindo.cli.Jindo.reboot_server" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reboots server</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="jindo.cli.Jindo.add_diskspace">
+<tt class="descclassname">Jindo.</tt><tt class="descname">add_diskspace</tt><big>(</big><em>service</em><big>)</big><a class="reference internal" href="_modules/jindo/cli.html#Jindo.add_diskspace"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jindo.cli.Jindo.add_diskspace" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds temp disk space</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="jindo.cli.Jindo.run">
+<tt class="descclassname">Jindo.</tt><tt class="descname">run</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/jindo/cli.html#Jindo.run"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jindo.cli.Jindo.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>Perform actions based on CLI options</p>
+<p>&#64;returns: status code</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="jindo.cli.Jindo.jindo_version">
+<tt class="descclassname">Jindo.</tt><tt class="descname">jindo_version</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/jindo/cli.html#Jindo.jindo_version"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jindo.cli.Jindo.jindo_version" title="Permalink to this definition">¶</a></dt>
+<dd><p>Show jindo&#8217;s version</p>
+<p>&#64;returns: 0</p>
+</dd></dl>
+
+</div>
+<div class="section" id="utils">
+<h3>utils<a class="headerlink" href="#utils" title="Permalink to this headline">¶</a></h3>
+<dl class="function">
+<dt id="jindo.utils.blue">
+<tt class="descclassname">jindo.utils.</tt><tt class="descname">blue</tt><big>(</big><em>my_string</em><big>)</big><a class="reference internal" href="_modules/jindo/utils.html#blue"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jindo.utils.blue" title="Permalink to this definition">¶</a></dt>
+<dd><p>TODO: Find some simple coloring function/lib</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="jindo.utils.get_rc_file">
+<tt class="descclassname">jindo.utils.</tt><tt class="descname">get_rc_file</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/jindo/utils.html#get_rc_file"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jindo.utils.get_rc_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return location we store config files and data</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="jindo.utils.sinsert">
+<tt class="descclassname">jindo.utils.</tt><tt class="descname">sinsert</tt><big>(</big><em>original</em>, <em>new</em>, <em>pos</em><big>)</big><a class="reference internal" href="_modules/jindo/utils.html#sinsert"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jindo.utils.sinsert" title="Permalink to this definition">¶</a></dt>
+<dd><p>Inserts new string inside original string at pos</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="jindo.utils.camel_to_human">
+<tt class="descclassname">jindo.utils.</tt><tt class="descname">camel_to_human</tt><big>(</big><em>original</em><big>)</big><a class="reference internal" href="_modules/jindo/utils.html#camel_to_human"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jindo.utils.camel_to_human" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+</div>
+</div>
+<div class="section" id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><a class="reference internal" href="genindex.html"><em>Index</em></a></li>
+<li><a class="reference internal" href="py-modindex.html"><em>Module Index</em></a></li>
+<li><a class="reference internal" href="search.html"><em>Search Page</em></a></li>
+</ul>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="#">
+              <img class="logo" src="_static/mt.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="#">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Jindo API/CLI Documentation</a><ul>
+<li><a class="reference internal" href="#usage">Usage</a></li>
+<li><a class="reference internal" href="#instalation">Instalation</a></li>
+<li><a class="reference internal" href="#api">API</a><ul>
+<li><a class="reference internal" href="#jindolib">jindolib</a></li>
+<li><a class="reference internal" href="#cli">cli</a></li>
+<li><a class="reference internal" href="#utils">utils</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
+</ul>
+
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/index.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li><a href="#">Jindo v0.0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010, Rob Cakebread.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.5.
+    </div>
+  </body>
+</html>
