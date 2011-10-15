@@ -34,13 +34,15 @@ def sinsert(original, new, pos):
     return original[:pos] + new + original[pos:]
 
 
-def camel_to_human(original):
+def camel_to_human(text, ansi=True):
     i = 0
-    for s in original:
+    for s in text:
         if s.isupper():
-            original = sinsert(original, " ", i)
+            text = sinsert(text, " ", i)
             i += 1
         i += 1
-    original = original.capitalize()
-    return blue(original)
+    text = text.capitalize()
+    if ansi:
+        text = blue(text)
+    return text
 
